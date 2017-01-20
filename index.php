@@ -26,7 +26,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Arraytest</a>
+      <a class="navbar-brand" href="#">CGCVP</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -36,12 +36,12 @@
         </ul>
 
       </div>
-<form class="form-inline my-2 my-lg-0 pull-right" style="width: auto;">
+<form class="form-inline my-2 my-lg-0" style="width: auto;">
           <a class="btn btn-outline-warning btn-block" href="info.php">Contestants Information</a>
         </form>
     </nav>
 <!-- navbar end -->
-    <div class="form-signin">
+    <div class="container">
     <div class="row">
     <div class="col">
         <h2 class="form-signin-heading">Add Contestants</h2>
@@ -58,20 +58,6 @@
         </div>
             <br>
             <div class="col">
-        <h2 class="form-signin-heading">Delete Contestants</h2>
-            <form action="delarray.php" method="get">
-            <div class="input-group">
-                <input class="form-control" type="text" id="delnum" placeholder="Student ID" name="delnum">
-                </div>
-                <br>
-                <input class="btn btn-block btn-danger" type="submit" value="Click">
-            </form>
-</div>
-</div>
-<br>
-<br>
-        <div class="row">
-    <div class="col">
         <h2 class="form-signin-heading">Search by ID</h2>
             <form action="">
             <div class="input-group">
@@ -84,6 +70,23 @@
                 <input class="btn btn-info btn-block" type="button" onclick="searcharr()" value="Click">
             </form>
             </div>
+</div>
+<br>
+<br>
+        <div class="row">
+    
+
+            <div class="col">
+        <h2 class="form-signin-heading">Delete Contestants</h2>
+            <form action="delarray.php" method="get">
+            <div class="input-group">
+                <input class="form-control" type="text" id="delnum" placeholder="Student ID" name="delnum">
+                </div>
+                <br>
+                <input class="btn btn-block btn-danger" type="submit" value="Click">
+            </form>
+</div>
+
         <div class="col">
         <h2 class="form-signin-heading">Match</h2>
             <form action="">
