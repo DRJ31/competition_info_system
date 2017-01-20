@@ -1,25 +1,26 @@
+<html>
+<head>
+    <title>Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+</head>
+<body>
+<table border="1px solid black" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>stunum</th>
+    </tr>
 <?php
+$num=$_GET["round"];
 /*Read Array*/
-$file = fopen('write.csv','r');
-while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
-    //print_r($data); //此为一个数组，要获得每一个数据，访问数组下标即可
+$file = fopen('log/write'.$num.'.csv','r');
+while ($data = fgetcsv($file)) {
     $mainarray[] = $data;
 }
 fclose($file);
 
 /*Write Array*/
 $length=count($mainarray);
-$content1='<html>
-<head>
-	<title>Information</title>
-	<meta charset="utf-8">
-</head>
-<body>
-<table border="1px solid black" cellspacing="0">
-	<tr>
-		<th>Name</th>
-		<th>stunum</th>
-	</tr>';
 $content="";
 for ($i=0;$i<$length;$i++){
     $stuname=$mainarray[$i][0];
@@ -28,13 +29,7 @@ for ($i=0;$i<$length;$i++){
 
         $content=$content.$everyone;
 }
-$content2='</table>
+echo $content;
+?></table>
 </body>
-</html>';
-$content=$content1.$content.$content2;
-$path="info.html";
-$file=fopen($path,"w+");
-fwrite($file,$content);
-fclose($file);
-$url="info.html";
-header("Location: $url");
+</html>

@@ -2,22 +2,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Arraytest</title>
+    <title>Contestant System</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/indexstyle.css" rel="stylesheet">
     <link href="css/signin.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <script src="array.js"></script>
     <script>
         var arr=new Array();
-                arr=<?php
-                      $path1="array.txt";
-                      $content=file_get_contents($path1);
-                      echo $content;
-                    ?>;
-        var total = arr.length/2;
-        var arr1=arr.slice(total);
+        arr=<?php
+       $content=file_get_contents("log/array0.txt");
+       echo $content;
+?>;
     </script>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -26,7 +23,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Arraytest</a>
+      <a class="navbar-brand" href="#">Contestant System</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -63,7 +60,7 @@
         <h2 class="form-signin-heading">Search by ID</h2>
             <form action="">
             <div class="input-group">
-                <input class="form-control" type="text" id="searcharrnum" placeholder="Array Num">
+                <input class="form-control" type="text" id="searcharrnum" placeholder="Student ID">
                 </div>
                 <div class="input-group">
                 <input class="form-control" type="text" id="searchresult" placeholder="Name" readonly="true">
@@ -72,17 +69,31 @@
                 <input class="btn btn-info btn-block" type="button" onclick="searcharr()" value="Click">
             </form>
         <br/>
-        <h2 class="form-signin-heading">Match</h2>
-            <form action="">
+        <h2 class="form-signin-heading">Match Contestant Result</h2>
+            <form action="jump.php" type="get">
             <div class="input-group">
-                <input class="form-control" type="text" id="result1" placeholder="Player 1" readonly="true">
-                <input class="form-control" type="text" id="result2" placeholder="Player 2" readonly="true">
+                <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
             </div>
             <br>
-                <input class="btn btn-success btn-block" type="button" value="click" onclick="random()">
+                <input class="btn btn-success btn-block" type="submit" value="Click">
             </form>
         <br>
-        <a class="btn btn-outline-warning btn-lg btn-block" href="info.php">Contestants Information</a>
-    </div>
+        <h2 class="form-signin-heading">Match</h2>
+        <form action="random.php" type="get">
+            <div class="input-group">
+                <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
+            </div>
+            <br>
+            <input class="btn btn-success btn-block" type="submit" value="Click">
+        </form>
+            <br>
+            <h2 class="form-signin-heading">Contestant List in every round</h2>
+            <form action="info.php" type="get">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
+                </div>
+                <br>
+            <input class="btn btn-success btn-block" type="submit" value="Click">
+        </form>
 </body>
 </html>

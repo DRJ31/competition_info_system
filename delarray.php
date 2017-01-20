@@ -18,7 +18,7 @@ function deep_in_array($value, $array) {
     return false;
 }
 /*Read Array*/
-$file = fopen('write.csv','r');
+$file = fopen('log/write0.csv','r');
 while ($data = fgetcsv($file)) {
     $mainarray[] = $data;
 }
@@ -37,7 +37,7 @@ else{
   }
 
   /*write array*/
-$file = fopen('write.csv','w+');
+$file = fopen('log/write0.csv','w+');
 foreach ($mainarray as $value){
     fputcsv($file,$value);
 }
@@ -56,7 +56,8 @@ for ($i=0;$i<$length;$i++){
         $content = $content.$everyone . ",";
     }
 }
-$path="array.txt";
+$path="log/array0.txt";
 $file=fopen($path,"w+");
 fwrite($file,$content);
 fclose($file);
+?>

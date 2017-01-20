@@ -1,5 +1,5 @@
+
 <?php
-/*functions*/
 function deep_in_array($value, $array) {
     foreach($array as $item) {
         if(!is_array($item)) {
@@ -18,43 +18,47 @@ function deep_in_array($value, $array) {
     }
     return false;
 }
+
 /*Read Array*/
-$file = fopen('log/write0.csv','r');
-while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
-    //print_r($data); //此为一个数组，要获得每一个数据，访问数组下标即可
+$num=file_get_contents("log/log.txt");
+$file = fopen('log/write'.$num.'.csv','r');
+while ($data = fgetcsv($file)) {
     $mainarray[] = $data;
 }
 fclose($file);
-/*add array*/
-$length=count($mainarray);
-$addname=$_GET["name"];
-$addstunum=$_GET["stunum"];
-$mainarray[$length]=array(0=>$addname,1=>$addstunum);
-
-/*show array*/
+$stu=$_GET["name"];
+$position=deep_in_array($stu,$mainarray);
+$position1=array_search($stu,$mainarray[$position]);
+var_dump($position);
+array_splice($mainarray[$position],$position1,2);
 /*write array*/
-$file = fopen('log/write0.csv','w+');
+$file = fopen('log/write'.$num.'.csv','w+');
 foreach ($mainarray as $value){
     fputcsv($file,$value);
 }
 fclose( $file);
 /*Write Array*/
+$length=count($mainarray);
 $content="[";
-for ($i=0;$i<$length+1;$i++){
-    $stuname=$mainarray[$i][0];
-    $stunumber=$mainarray[$i][1];
-    $everyone="[\"".$stuname."\",\"".$stunumber."\"]";
-    if($i==$length){
+/*Write Array*/
+$content="[";
+$length=count($mainarray);
+for ($i=0;$i<$length;$i++){
+    $stuname1=$mainarray[$i][0];
+    $stunumber1=$mainarray[$i][1];
+    $stuname2=$mainarray[$i][2];
+    $stunumber2=$mainarray[$i][3];
+    $everyone="[\"".$stuname1."\",\"".$stunumber1."\",\"".$stuname2."\",\"".$stunumber2."\"]";
+    if($i==$length-1){
         $content=$content.$everyone."]";
     }
     else {
         $content = $content.$everyone . ",";
     }
 }
-$path="log/array0.txt";
+$path="log/array".$num.".txt";
 $file=fopen($path,"w+");
 fwrite($file,$content);
 fclose($file);
-$url="arraytest.php";
+$url="match.php";
 header("Location: $url");
-?>
