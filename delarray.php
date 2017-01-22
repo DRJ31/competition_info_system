@@ -26,14 +26,14 @@ fclose($file);
 /*delete array*/
 $stu=$_GET["delnum"];
 $position=deep_in_array($stu,$mainarray);
-if ($position==false){
-    echo "Sorry, the number does not exist.";
-    header("Refresh: 3;url=arraytest.php");
+if ($position==false && $position!=0){
+    echo "<script>alert(\"Sorry, the number does not exist.\");</script>";
+    header("Refresh: 0;url=index.php");
 }
 else{
     array_splice($mainarray,$position,1);
-    echo "Success!";
-    header("Refresh: 3;url=arraytest.php");
+    echo "<script>alert(\"Success!\");</script>";
+    header("Refresh: 0;url=index.php");
   }
 
   /*write array*/

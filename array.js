@@ -8,6 +8,9 @@ function searcharr() {
             result.value=arr[i][0];
         }
     }
+}
 
+function matchphp(a) {
+    window.location.href= a;
 }
 

@@ -11,6 +11,31 @@
     <script>
         var arr=new Array();
         arr=<?php
+        /*Read Array*/
+        $file = fopen('log/write0.csv','r');
+        while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
+            //print_r($data); //此为一个数组，要获得每一个数据，访问数组下标即可
+            $mainarray[] = $data;
+        }
+        fclose($file);
+        /*Write Array*/
+        $length=count($mainarray);
+        $content="[";
+        for ($i=0;$i<$length;$i++){
+            $stuname=$mainarray[$i][0];
+            $stunumber=$mainarray[$i][1];
+            $everyone="[\"".$stuname."\",\"".$stunumber."\"]";
+            if($i==$length-1){
+                $content=$content.$everyone."]";
+            }
+            else {
+                $content = $content.$everyone . ",";
+            }
+        }
+        $path="log/array0.txt";
+        $file=fopen($path,"w+");
+        fwrite($file,$content);
+        fclose($file);
        $content=file_get_contents("log/array0.txt");
        echo $content;
 ?>;
@@ -38,7 +63,7 @@
         <h2 class="form-signin-heading">Add Contestants</h2>
             <form action="addarray.php" method="get">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Name" type="text" id="name" name="name">
+                        <input class="form-control" placeholder="Name" type="text" id="name" name="stuname">
                         </div>
                     <div class="input-group">
                         <input class="form-control" placeholder="Student ID" type="text" id="number" name="stunum">
@@ -84,7 +109,7 @@
                 <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
             </div>
             <br>
-            <input class="btn btn-success btn-block" type="submit" value="Click">
+            <input class="btn btn-danger btn-block" type="submit" value="Click">
         </form>
             <br>
             <h2 class="form-signin-heading">Contestant List in every round</h2>
@@ -93,7 +118,9 @@
                     <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
                 </div>
                 <br>
-            <input class="btn btn-success btn-block" type="submit" value="Click">
+            <input class="btn btn-warning btn-block" type="submit" value="Click">
         </form>
+        <br>
+        <button class="btn btn-block btn-outline-warning" onclick="window.location.href='match.php'">Edit Contestants in this round</button>
 </body>
 </html>

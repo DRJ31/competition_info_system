@@ -1,23 +1,5 @@
 <?php
-/*functions*/
-function deep_in_array($value, $array) {
-    foreach($array as $item) {
-        if(!is_array($item)) {
-            if ($item == $value) {
-                return true;
-            } else {
-                continue;
-            }
-        }
 
-        if(in_array($value, $item)) {
-            return array_search($item,$array);
-        } else if(deep_in_array($value, $item)) {
-            return true;
-        }
-    }
-    return false;
-}
 /*Read Array*/
 $file = fopen('log/write0.csv','r');
 while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
@@ -27,7 +9,7 @@ while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
 fclose($file);
 /*add array*/
 $length=count($mainarray);
-$addname=$_GET["name"];
+$addname=$_GET["stuname"];
 $addstunum=$_GET["stunum"];
 $mainarray[$length]=array(0=>$addname,1=>$addstunum);
 
@@ -55,6 +37,7 @@ $path="log/array0.txt";
 $file=fopen($path,"w+");
 fwrite($file,$content);
 fclose($file);
-$url="arraytest.php";
+echo "<script>alert(\"Success!\");</script>";
+$url="index.php";
 header("Location: $url");
 ?>
