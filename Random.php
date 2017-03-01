@@ -1,5 +1,5 @@
 <?php
-$num=$_GET["round"];
+$num=$_POST["round"];
 $num1=$num-1;
 /*Read Array*/
 $file = fopen("log/write".$num1.".csv","r");

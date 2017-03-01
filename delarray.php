@@ -24,7 +24,7 @@ while ($data = fgetcsv($file)) {
 }
 fclose($file);
 /*delete array*/
-$stu=$_GET["delnum"];
+$stu=$_POST["delnum"];
 $position=deep_in_array($stu,$mainarray);
 if ($position==false && $position!=0){
     echo "<script>alert(\"Sorry, the number does not exist.\");</script>";

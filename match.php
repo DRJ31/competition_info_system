@@ -63,7 +63,7 @@
     fclose($file);
     /*write frame*/
     $content1='<tr><td>
-<form action="delstu.php">
+<form action="delstu.php" method="post">
 	<input type="text" name="name" class="form-control" id="name';
     $content2='" readonly="true" value="">
 	<input type="text" name="stuid" class="form-control" id="stuid';

@@ -26,7 +26,7 @@ while ($data = fgetcsv($file)) {
     $mainarray[] = $data;
 }
 fclose($file);
-$stu=$_GET["name"];
+$stu=$_POST["name"];
 $position=deep_in_array($stu,$mainarray);
 $position1=array_search($stu,$mainarray[$position]);
 var_dump($position);

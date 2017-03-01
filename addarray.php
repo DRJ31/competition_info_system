@@ -9,8 +9,8 @@ while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
 fclose($file);
 /*add array*/
 $length=count($mainarray);
-$addname=$_GET["stuname"];
-$addstunum=$_GET["stunum"];
+$addname=$_POST["stuname"];
+$addstunum=$_POST["stunum"];
 $mainarray[$length]=array(0=>$addname,1=>$addstunum);
 
 /*show array*/

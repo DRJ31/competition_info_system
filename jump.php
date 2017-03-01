@@ -8,7 +8,7 @@
 <div>
 
     <?php
-    $num=$_GET["round"];
+    $num=$_POST["round"];
     $restrict=file_get_contents("log/log.txt");
     $restrict=(int)$restrict;
     $num=(int)$num;

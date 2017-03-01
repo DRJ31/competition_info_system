@@ -60,8 +60,8 @@
     </nav>
 <!-- navbar end -->
     <div class="form-signin">
-        <h2 class="form-signin-heading">Add Contestants</h2>
-            <form action="addarray.php" method="get">
+       <!-- <h2 class="form-signin-heading">Add Contestants</h2>
+            <form action="addarray.php" method="post">
                     <div class="input-group">
                         <input class="form-control" placeholder="Name" type="text" id="name" name="stuname">
                         </div>
@@ -73,7 +73,7 @@
             </form>
             <br>
         <h2 class="form-signin-heading">Delete Contestants</h2>
-            <form action="delarray.php" method="get">
+            <form action="delarray.php" method="post">
             <div class="input-group">
                 <input class="form-control" type="text" id="delnum" placeholder="Student ID" name="delnum">
                 </div>
@@ -81,7 +81,7 @@
                 <input class="btn btn-block btn-danger" type="submit" value="Click">
             </form>
 
-        <br/>
+        <br/>-->
         <h2 class="form-signin-heading">Search by ID</h2>
             <form action="">
             <div class="input-group">
@@ -95,7 +95,7 @@
             </form>
         <br/>
         <h2 class="form-signin-heading">Match Contestant Result</h2>
-            <form action="jump.php" type="get">
+            <form action="jump.php" method="post">
             <div class="input-group">
                 <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
             </div>
@@ -104,7 +104,7 @@
             </form>
         <br>
         <h2 class="form-signin-heading">Match</h2>
-        <form action="random.php" type="get">
+        <form action="Random.php" method="post">
             <div class="input-group">
                 <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
             </div>
@@ -113,7 +113,7 @@
         </form>
             <br>
             <h2 class="form-signin-heading">Contestant List in every round</h2>
-            <form action="info.php" type="get">
+            <form action="info.php" method="post">
                 <div class="input-group">
                     <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
                 </div>
@@ -122,5 +122,6 @@
         </form>
         <br>
         <button class="btn btn-block btn-outline-warning" onclick="window.location.href='match.php'">Edit Contestants in this round</button>
+        <button class="btn btn-block btn-outline-danger" onclick="window.location.href='reset.php'">Reset</button>
 </body>
 </html>
