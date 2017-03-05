@@ -71,7 +71,7 @@
 	<input type="submit" value="Delete" class="btn btn-danger btn-block">
 </form>
 </td><td>V.S</td>
-<td><form action="delstu.php">
+<td><form action="delstu.php" method="post">
 	<input type="text" name="name" class="form-control" id="name';
     $content4='" readonly="true" value="">
 	<input type="text" name="stuid" class="form-control" id="stuid';
