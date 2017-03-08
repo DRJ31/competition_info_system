@@ -82,46 +82,48 @@
             </form>
 
         <br/>-->
-        <h2 class="form-signin-heading">Search by ID</h2>
+        <h2 class="form-signin-heading">通过ID查找</h2>
             <form action="">
             <div class="input-group">
-                <input class="form-control" type="text" id="searcharrnum" placeholder="Student ID">
+                <input class="form-control" type="text" id="searcharrnum" placeholder="学号">
                 </div>
                 <div class="input-group">
                 <input class="form-control" type="text" id="searchresult" placeholder="Name" readonly="true">
                 </div>
                 <br/>
-                <input class="btn btn-info btn-block" type="button" onclick="searcharr()" value="Click">
+                <input class="btn btn-info btn-block" type="button" onclick="searcharr()" value="点击">
             </form>
         <br/>
-        <h2 class="form-signin-heading">Match Contestant Result</h2>
+        <h2 class="form-signin-heading">每轮对手配对结果</h2>
             <form action="jump.php" method="post">
             <div class="input-group">
                 <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
             </div>
             <br>
-                <input class="btn btn-success btn-block" type="submit" value="Click">
+                <input class="btn btn-success btn-block" type="submit" value="点击">
             </form>
         <br>
-        <h2 class="form-signin-heading">Match</h2>
+        <h2 class="form-signin-heading">匹配对手</h2>
         <form action="Random.php" method="post">
             <div class="input-group">
-                <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
+                <input class="form-control" type="text" name="round" placeholder="请输入需要匹配的轮数">
             </div>
             <br>
-            <input class="btn btn-danger btn-block" type="submit" value="Click">
+            <input class="btn btn-danger btn-block" type="submit" value="点击">
         </form>
             <br>
-            <h2 class="form-signin-heading">Contestant List in every round</h2>
+            <h2 class="form-signin-heading">每轮选手名单</h2>
             <form action="info.php" method="post">
                 <div class="input-group">
-                    <input class="form-control" type="text" name="round" placeholder="Please input the number of round">
+                    <input class="form-control" type="text" name="round" placeholder="请输入需要查询的轮数">
                 </div>
                 <br>
-            <input class="btn btn-warning btn-block" type="submit" value="Click">
+            <input class="btn btn-warning btn-block" type="submit" value="点击">
         </form>
         <br>
-        <button class="btn btn-block btn-outline-warning" onclick="window.location.href='match.php'">Edit Contestants in this round</button>
-        <button class="btn btn-block btn-outline-danger" onclick="window.location.href='reset.php'">Reset</button>
+        <button class="btn btn-block btn-outline-warning" onclick="window.location.href='match.php'">编辑本轮选手</button>
+        <button class="btn btn-block btn-outline-danger" onclick="window.location.href='reset1.php'">重置本轮</button>
+        <button class="btn btn-block btn-outline-danger" onclick="window.location.href='reset.php'">重置全部</button>
+
 </body>
 </html>
