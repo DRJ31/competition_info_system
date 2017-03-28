@@ -3,7 +3,7 @@
     <title>Information</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
@@ -21,7 +21,7 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 80px">
-    <h1>Round<?php $roundnum=$_GET["round"];echo $roundnum;?></h1>
+    <h1>Round<?php $roundnum=$_POST["round"];echo $roundnum;?></h1>
     <table style="text-align: center" class="table table-striped">
         <tr>
             <th style="text-align: center">Name</th>
@@ -29,15 +29,23 @@
         </tr>
 <?php
 include 'function.php';
-$conn=logsql('120.77.38.66:3306','demonist','008691');
+$conn=logsql('localhost:3306','demonist','008691');
+$getnum="SELECT number FROM counting WHERE type='hearthstone'";
 $getdata="SELECT * FROM hearthstone WHERE round='$roundnum'";
 mysql_select_db('demonist');
 $retval=mysql_query($getdata);
 if(!$retval){
     die("Could not get data");
 }
-while($row=mysql_fetch_array($retval,MYSQL_ASSOC)){
-    echo "<tr><td>" . $row['name'] . "</td><td>" . $row['stuid'] . "</td></tr>";
+$num=mysql_query($getnum);
+$num=mysql_fetch_row($num);
+if($roundnum>$num[0]){
+    echo "<script>alert('Haven\'t matched');window.location.href='index.html';</script>";
+}
+else {
+    while ($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+        echo "<tr><td>" . $row['englishname'] . "</td><td>" . $row['stuid'] . "</td></tr>";
+    }
 }
 ?>
     </table>
