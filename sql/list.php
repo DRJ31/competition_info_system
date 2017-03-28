@@ -10,7 +10,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.php">Contestant System</a>
+    <a class="navbar-brand" href="index.html">Contestant System</a>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -21,7 +21,7 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 80px">
-    <h1>Round<?php $roundnum=$_POST["round"];echo $roundnum;?></h1>
+    <h1>Round<?php $roundnum=$_POST["round"];echo $roundnum;include 'function.php';?></h1>
     <table style="text-align: center" class="table table-striped">
         <tr>
             <th style="text-align: center">Name</th>
@@ -29,7 +29,7 @@
         </tr>
 <?php
 include 'function.php';
-$conn=logsql('localhost:3306','demonist','008691');
+$conn=logsql($dbhost,$dbuser,$dbpass);
 $getnum="SELECT number FROM counting WHERE type='hearthstone'";
 $getdata="SELECT * FROM hearthstone WHERE round='$roundnum'";
 mysql_select_db('demonist');
