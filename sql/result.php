@@ -3,7 +3,7 @@
     <title>Information</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
@@ -28,7 +28,11 @@
     mysql_select_db('demonist');
     $num=mysql_query($getnum);
     $num=mysql_fetch_row($num);
-    echo $num[0];
+    $number=$_POST["number"];
+    if($number>$num[0]){
+        die("<script>alert('Haven\'t matched!');window.location.href='index.php';</script>");
+    }
+    echo $number;
     ?></h1>
     <table style="text-align: center" class="table table-striped">
         <tr>
@@ -37,7 +41,7 @@
             <th style="text-align: center">Contestant2</th>
         </tr>
         <?php
-$getdata="SELECT * FROM hearthstoneback WHERE round='$num[0]'";
+$getdata="SELECT * FROM hearthstoneback WHERE round='$number'";
 $retval=mysql_query($getdata);
 if(!$retval){
     die("Could not get data");

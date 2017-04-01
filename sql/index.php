@@ -20,9 +20,9 @@ while($row=mysql_fetch_array($retval,MYSQL_ASSOC))
 <head>
     <meta charset="UTF-8">
     <title>Contestant System</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/indexstyle.css" rel="stylesheet">
-    <link href="../css/signin.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="indexstyle.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <script>
         function confirmit(path,str,num) {
@@ -94,11 +94,19 @@ while($row=mysql_fetch_array($retval,MYSQL_ASSOC))
             <input class="form-control" type="text" placeholder="名字" name="name">
         </div>
         <br/>
-        <input class="btn btn-info btn-block" type="submit" value="确认添加">
+        <input class="btn btn-success btn-block" type="submit" value="确认添加">
+    </form>
+    <br/>
+    <h2 class="form-signin-heading">查看对手</h2>
+    <form action="result.php" method="post">
+        <div class="input-group">
+            <input class="form-control" type="text" name="number" placeholder="轮数">
+        </div>
+        <br/>
+        <input class="btn btn-warning btn-block" type="submit" value="查看对手">
     </form>
     <br/>
     <button class="btn btn-block btn-outline-info" onclick="window.location.href='info.php'">查看选手名单</button>
-    <button class="btn btn-block btn-outline-warning" onclick="window.location.href='result.php'">查看本轮对手</button>
     <button class="btn btn-block btn-outline-danger" onclick="confirmit('list.php','generate competitors',1)">抽取对手</button>
     <button class="btn btn-block btn-outline-danger" onclick="confirmit('reset.php','reset',0)">重置本轮</button>
     <br>

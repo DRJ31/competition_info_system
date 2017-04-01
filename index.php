@@ -7,39 +7,6 @@
     <link href="css/indexstyle.css" rel="stylesheet">
     <link href="css/signin.css" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
-    <script src="array.js"></script>
-    <script>
-        var arr=new Array();
-        arr=<?php
-        /*Read Array*/
-        $file = fopen('log/write0.csv','r');
-        while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
-            //print_r($data); //此为一个数组，要获得每一个数据，访问数组下标即可
-            $mainarray[] = $data;
-        }
-        fclose($file);
-        /*Write Array*/
-        $length=count($mainarray);
-        $content="[";
-        for ($i=0;$i<$length;$i++){
-            $stuname=$mainarray[$i][0];
-            $stunumber=$mainarray[$i][1];
-            $everyone="[\"".$stuname."\",\"".$stunumber."\"]";
-            if($i==$length-1){
-                $content=$content.$everyone."]";
-            }
-            else {
-                $content = $content.$everyone . ",";
-            }
-        }
-        $path="log/array0.txt";
-        $file=fopen($path,"w+");
-        fwrite($file,$content);
-        fclose($file);
-       $content=file_get_contents("log/array0.txt");
-       echo $content;
-?>;
-    </script>
 </head>
 
 <body>
