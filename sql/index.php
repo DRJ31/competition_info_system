@@ -1,5 +1,5 @@
 <?php
-include 'function.php';
+include 'function.php';//sql information in it
 $conn=logsql($dbhost,$dbuser,$dbpass);
 $getdata="SELECT * FROM hearthstone";
 mysql_select_db('demonist');
