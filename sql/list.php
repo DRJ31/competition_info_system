@@ -25,7 +25,7 @@
     include 'function.php';
     $conn=logsql($dbhost,$dbuser,$dbpass);
     $getnum="SELECT * FROM counting WHERE type='hearthstone'";
-    mysql_select_db('demonist');
+    mysql_select_db('used');
     $num=mysql_query($getnum);
     $num=mysql_fetch_row($num);
     echo ++$num[0];

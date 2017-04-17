@@ -30,7 +30,7 @@
         include 'function.php';
         $conn=logsql($dbhost,$dbuser,$dbpass);
         $getdata="SELECT * FROM hearthstone";
-        mysql_select_db('demonist');
+        mysql_select_db('used');
         $retval=mysql_query($getdata);
         if (!$retval){
             die(mysql_error());

@@ -1,7 +1,7 @@
 <?php
 include 'function.php';
 $conn=logsql($dbhost,$dbuser,$dbpass);
-mysql_select_db('demonist');//database name
+mysql_select_db('used');//database name
 $addnum=$_POST["stunum"];
 $addname=$_POST["name"];
 $insert="INSERT INTO hearthstone (name,stuid) VALUES ('$addname','$addnum')";

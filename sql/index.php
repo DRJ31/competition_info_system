@@ -2,7 +2,7 @@
 include 'function.php';//sql information in it
 $conn=logsql($dbhost,$dbuser,$dbpass);
 $getdata="SELECT * FROM hearthstone";
-mysql_select_db('demonist');
+mysql_select_db('used');
 $getnum="SELECT * FROM counting WHERE type='hearthstone'";
 $num=mysql_query($getnum);
 $num=mysql_fetch_row($num);
